@@ -1,0 +1,11 @@
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\bin\Debug\DriveTracker.exe.config
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\bin\Debug\DriveTracker.exe
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\bin\Debug\DriveTracker.pdb
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\obj\Debug\DriveTracker.MainForm.resources
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\obj\Debug\DriveTracker.Properties.Resources.resources
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\obj\Debug\DriveTracker.csproj.GenerateResource.cache
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\obj\Debug\DriveTracker.exe
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\obj\Debug\DriveTracker.pdb
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\obj\Debug\DriveTracker.AboutDrive.resources
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\obj\Debug\DriveTracker.TrackInfo.resources
+D:\Workplace\.NET\Course project\DriveTracker\DriveTracker\obj\Debug\DriveTracker.csprojAssemblyReference.cache

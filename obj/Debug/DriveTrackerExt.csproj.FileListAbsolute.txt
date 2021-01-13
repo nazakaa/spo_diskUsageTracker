@@ -1,0 +1,22 @@
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\obj\Debug\DriveTrackerExt.csprojAssemblyReference.cache
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\obj\Debug\DriveTracker.AboutDrive.resources
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\obj\Debug\DriveTracker.MainForm.resources
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\obj\Debug\DriveTracker.Properties.Resources.resources
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\obj\Debug\DriveTracker.TrackInfo.resources
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\obj\Debug\DriveTrackerExt.csproj.GenerateResource.cache
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\obj\Debug\DriveTracker.exe
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\obj\Debug\DriveTracker.pdb
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\bin\Debug\DriveTracker.exe.config
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\bin\Debug\DriveTracker.exe
+D:\Workplace\.NET\Course project\Extended\DriveTrackerExt\bin\Debug\DriveTracker.pdb
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\bin\Debug\DriveTracker.exe.config
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\bin\Debug\DriveTracker.exe
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\bin\Debug\DriveTracker.pdb
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Debug\DriveTrackerExt.csprojAssemblyReference.cache
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Debug\DriveTracker.AboutDrive.resources
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Debug\DriveTracker.MainForm.resources
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Debug\DriveTracker.Properties.Resources.resources
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Debug\DriveTracker.TrackInfo.resources
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Debug\DriveTrackerExt.csproj.GenerateResource.cache
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Debug\DriveTracker.exe
+C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Debug\DriveTracker.pdb
