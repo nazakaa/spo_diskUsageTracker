@@ -57,8 +57,8 @@ namespace DriveTracker
 
             series.Points.Add(driveAndRule.DriveFreeSpace);
             series.Points.Add(driveAndRule.DriveUsedSpace);
-            series.Points[0].Color = System.Drawing.Color.LightGray;
-            series.Points[1].Color = System.Drawing.Color.DarkGray;
+            series.Points[0].Color = System.Drawing.Color.DarkGray;
+            series.Points[1].Color = System.Drawing.Color.DarkCyan;
 
             DataPoint p1 = series.Points[0];
             p1.AxisLabel = Tools.SizeSuffixString((driveAndRule.DriveFreeSpace));
@@ -79,6 +79,11 @@ namespace DriveTracker
         private void AboutDrive_Load(object sender, System.EventArgs e)
         {
 
+        }
+
+        private void chart_Click_1(object sender, System.EventArgs e)
+        {
+            chart.SaveImage("resultChart.png",ChartImageFormat.Png);
         }
     }
 }

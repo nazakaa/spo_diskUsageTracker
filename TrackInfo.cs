@@ -100,5 +100,10 @@ namespace DriveTracker
             about.driveAndRule.trackingAmount = 0;
             about.chkBox.Checked = about.driveAndRule.isTracking;
         }
+
+        private void tableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

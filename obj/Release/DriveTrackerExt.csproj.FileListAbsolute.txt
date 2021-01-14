@@ -13,7 +13,6 @@ D:\Desktop\0\old dt\bin\Release\DriveTracker.exe.config
 D:\Desktop\0\old dt\bin\Release\DriveTracker.exe
 D:\Desktop\0\old dt\bin\Release\DriveTracker.pdb
 D:\Desktop\0\old dt\obj\Release\DriveTrackerExt.csprojAssemblyReference.cache
-D:\Desktop\0\old dt\obj\Release\DriveTracker.AboutDrive.resources
 D:\Desktop\0\old dt\obj\Release\DriveTracker.MainForm.resources
 D:\Desktop\0\old dt\obj\Release\DriveTracker.Properties.Resources.resources
 D:\Desktop\0\old dt\obj\Release\DriveTracker.TrackInfo.resources

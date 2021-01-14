@@ -31,9 +31,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.lblDriveCapacity = new System.Windows.Forms.Label();
             this.lblDriveLetterValue = new System.Windows.Forms.Label();
@@ -52,20 +52,20 @@
             this.groupBox.Controls.Add(this.lblDriveLetterValue);
             this.groupBox.Controls.Add(this.lblDriveLetter);
             this.groupBox.Controls.Add(this.lblDriveCapacityValue);
-            this.groupBox.Controls.Add(this.chart);
             this.groupBox.Controls.Add(this.chkBox);
-            this.groupBox.Location = new System.Drawing.Point(4, 4);
+            this.groupBox.Controls.Add(this.chart);
+            this.groupBox.Location = new System.Drawing.Point(4, 0);
             this.groupBox.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox.Name = "groupBox";
             this.groupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox.Size = new System.Drawing.Size(481, 329);
+            this.groupBox.Size = new System.Drawing.Size(436, 302);
             this.groupBox.TabIndex = 22;
             this.groupBox.TabStop = false;
             // 
             // lblDriveCapacity
             // 
             this.lblDriveCapacity.AutoSize = true;
-            this.lblDriveCapacity.Location = new System.Drawing.Point(19, 58);
+            this.lblDriveCapacity.Location = new System.Drawing.Point(19, 54);
             this.lblDriveCapacity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDriveCapacity.Name = "lblDriveCapacity";
             this.lblDriveCapacity.Size = new System.Drawing.Size(112, 17);
@@ -97,7 +97,7 @@
             // lblDriveCapacityValue
             // 
             this.lblDriveCapacityValue.AutoSize = true;
-            this.lblDriveCapacityValue.Location = new System.Drawing.Point(155, 59);
+            this.lblDriveCapacityValue.Location = new System.Drawing.Point(155, 55);
             this.lblDriveCapacityValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDriveCapacityValue.Name = "lblDriveCapacityValue";
             this.lblDriveCapacityValue.Size = new System.Drawing.Size(16, 17);
@@ -107,31 +107,32 @@
             // 
             // chart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart.Legends.Add(legend1);
-            this.chart.Location = new System.Drawing.Point(22, 106);
+            chartArea2.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart.Legends.Add(legend2);
+            this.chart.Location = new System.Drawing.Point(22, 74);
             this.chart.Margin = new System.Windows.Forms.Padding(4);
             this.chart.Name = "chart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart.Series.Add(series2);
             this.chart.Size = new System.Drawing.Size(398, 220);
             this.chart.TabIndex = 19;
             this.chart.Text = "chart1";
+            this.chart.Click += new System.EventHandler(this.chart_Click_1);
             // 
             // chkBox
             // 
             this.chkBox.AutoCheck = false;
             this.chkBox.AutoSize = true;
-            this.chkBox.Location = new System.Drawing.Point(311, 25);
+            this.chkBox.Location = new System.Drawing.Point(319, 273);
             this.chkBox.Margin = new System.Windows.Forms.Padding(4);
             this.chkBox.Name = "chkBox";
-            this.chkBox.Size = new System.Drawing.Size(85, 21);
+            this.chkBox.Size = new System.Drawing.Size(109, 21);
             this.chkBox.TabIndex = 21;
-            this.chkBox.Text = "Tracking";
+            this.chkBox.Text = "Мониторинг";
             this.chkBox.UseVisualStyleBackColor = true;
             this.chkBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AboutDrive_MouseClick);
             // 
@@ -142,7 +143,7 @@
             this.Controls.Add(this.groupBox);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AboutDrive";
-            this.Size = new System.Drawing.Size(511, 354);
+            this.Size = new System.Drawing.Size(441, 303);
             this.Load += new System.EventHandler(this.AboutDrive_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AboutDrive_MouseClick);
             this.groupBox.ResumeLayout(false);
