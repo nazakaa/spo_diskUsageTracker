@@ -75,5 +75,10 @@ namespace DriveTracker
         {
             chart.SaveImage("myChart.png", format: ChartImageFormat.Png);
         }
+
+        private void AboutDrive_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

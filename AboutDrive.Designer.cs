@@ -16,7 +16,7 @@
 
             if (disposing && (components != null))
             {
-                
+
                 components.Dispose();
             }
 
@@ -34,74 +34,93 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.lblDriveCapacityValue = new System.Windows.Forms.Label();
-            this.lblDriveLetter = new System.Windows.Forms.Label();
-            this.lblDriveLetterValue = new System.Windows.Forms.Label();
-            this.lblDriveCapacity = new System.Windows.Forms.Label();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.chkBox = new System.Windows.Forms.CheckBox();
+            this.lblDriveCapacity = new System.Windows.Forms.Label();
+            this.lblDriveLetterValue = new System.Windows.Forms.Label();
+            this.lblDriveLetter = new System.Windows.Forms.Label();
+            this.lblDriveCapacityValue = new System.Windows.Forms.Label();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chkBox = new System.Windows.Forms.CheckBox();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblDriveCapacityValue
-            // 
-            this.lblDriveCapacityValue.AutoSize = true;
-            this.lblDriveCapacityValue.Location = new System.Drawing.Point(84, 26);
-            this.lblDriveCapacityValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDriveCapacityValue.Name = "lblDriveCapacityValue";
-            this.lblDriveCapacityValue.Size = new System.Drawing.Size(16, 17);
-            this.lblDriveCapacityValue.TabIndex = 14;
-            this.lblDriveCapacityValue.Text = "0";
-            // 
-            // lblDriveLetter
-            // 
-            this.lblDriveLetter.AutoSize = true;
-            this.lblDriveLetter.Location = new System.Drawing.Point(165, 26);
-            this.lblDriveLetter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDriveLetter.Name = "lblDriveLetter";
-            this.lblDriveLetter.Size = new System.Drawing.Size(49, 17);
-            this.lblDriveLetter.TabIndex = 17;
-            this.lblDriveLetter.Text = "Letter:";
-            // 
-            // lblDriveLetterValue
-            // 
-            this.lblDriveLetterValue.AutoSize = true;
-            this.lblDriveLetterValue.Location = new System.Drawing.Point(241, 26);
-            this.lblDriveLetterValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDriveLetterValue.Name = "lblDriveLetterValue";
-            this.lblDriveLetterValue.Size = new System.Drawing.Size(0, 17);
-            this.lblDriveLetterValue.TabIndex = 18;
-            this.lblDriveLetterValue.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AboutDrive_MouseClick);
-            // 
-            // lblDriveCapacity
-            // 
-            this.lblDriveCapacity.AutoSize = true;
-            this.lblDriveCapacity.Location = new System.Drawing.Point(4, 27);
-            this.lblDriveCapacity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDriveCapacity.Name = "lblDriveCapacity";
-            this.lblDriveCapacity.Size = new System.Drawing.Size(70, 17);
-            this.lblDriveCapacity.TabIndex = 13;
-            this.lblDriveCapacity.Text = "Capacity: ";
-            // 
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.Color.White;
-            this.groupBox.Controls.Add(this.chart);
-            this.groupBox.Controls.Add(this.chkBox);
             this.groupBox.Controls.Add(this.lblDriveCapacity);
             this.groupBox.Controls.Add(this.lblDriveLetterValue);
             this.groupBox.Controls.Add(this.lblDriveLetter);
             this.groupBox.Controls.Add(this.lblDriveCapacityValue);
+            this.groupBox.Controls.Add(this.chart);
+            this.groupBox.Controls.Add(this.chkBox);
             this.groupBox.Location = new System.Drawing.Point(4, 4);
             this.groupBox.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox.Name = "groupBox";
             this.groupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox.Size = new System.Drawing.Size(416, 277);
+            this.groupBox.Size = new System.Drawing.Size(481, 329);
             this.groupBox.TabIndex = 22;
             this.groupBox.TabStop = false;
-            this.groupBox.Text = "Drive Info";
+            // 
+            // lblDriveCapacity
+            // 
+            this.lblDriveCapacity.AutoSize = true;
+            this.lblDriveCapacity.Location = new System.Drawing.Point(19, 58);
+            this.lblDriveCapacity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDriveCapacity.Name = "lblDriveCapacity";
+            this.lblDriveCapacity.Size = new System.Drawing.Size(112, 17);
+            this.lblDriveCapacity.TabIndex = 22;
+            this.lblDriveCapacity.Text = "Емкость диска: ";
+            this.lblDriveCapacity.UseWaitCursor = true;
+            // 
+            // lblDriveLetterValue
+            // 
+            this.lblDriveLetterValue.AutoSize = true;
+            this.lblDriveLetterValue.Location = new System.Drawing.Point(158, 31);
+            this.lblDriveLetterValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDriveLetterValue.Name = "lblDriveLetterValue";
+            this.lblDriveLetterValue.Size = new System.Drawing.Size(0, 17);
+            this.lblDriveLetterValue.TabIndex = 25;
+            this.lblDriveLetterValue.UseWaitCursor = true;
+            // 
+            // lblDriveLetter
+            // 
+            this.lblDriveLetter.AutoSize = true;
+            this.lblDriveLetter.Location = new System.Drawing.Point(19, 29);
+            this.lblDriveLetter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDriveLetter.Name = "lblDriveLetter";
+            this.lblDriveLetter.Size = new System.Drawing.Size(118, 17);
+            this.lblDriveLetter.TabIndex = 24;
+            this.lblDriveLetter.Text = "Название диска:";
+            this.lblDriveLetter.UseWaitCursor = true;
+            // 
+            // lblDriveCapacityValue
+            // 
+            this.lblDriveCapacityValue.AutoSize = true;
+            this.lblDriveCapacityValue.Location = new System.Drawing.Point(155, 59);
+            this.lblDriveCapacityValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDriveCapacityValue.Name = "lblDriveCapacityValue";
+            this.lblDriveCapacityValue.Size = new System.Drawing.Size(16, 17);
+            this.lblDriveCapacityValue.TabIndex = 23;
+            this.lblDriveCapacityValue.Text = "0";
+            this.lblDriveCapacityValue.UseWaitCursor = true;
+            // 
+            // chart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
+            this.chart.Location = new System.Drawing.Point(22, 106);
+            this.chart.Margin = new System.Windows.Forms.Padding(4);
+            this.chart.Name = "chart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart.Series.Add(series1);
+            this.chart.Size = new System.Drawing.Size(398, 220);
+            this.chart.TabIndex = 19;
+            this.chart.Text = "chart1";
             // 
             // chkBox
             // 
@@ -116,32 +135,15 @@
             this.chkBox.UseVisualStyleBackColor = true;
             this.chkBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AboutDrive_MouseClick);
             // 
-            // chart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart.Legends.Add(legend1);
-            this.chart.Location = new System.Drawing.Point(8, 47);
-            this.chart.Margin = new System.Windows.Forms.Padding(4);
-            this.chart.Name = "chart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart.Series.Add(series1);
-            this.chart.Size = new System.Drawing.Size(395, 223);
-            this.chart.TabIndex = 19;
-            this.chart.Text = "chart1";
-            this.chart.Click += new System.EventHandler(this.chart_Click);
-            // 
             // AboutDrive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AboutDrive";
-            this.Size = new System.Drawing.Size(420, 279);
+            this.Size = new System.Drawing.Size(511, 354);
+            this.Load += new System.EventHandler(this.AboutDrive_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AboutDrive_MouseClick);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
@@ -151,13 +153,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblDriveCapacityValue;
-        private System.Windows.Forms.Label lblDriveLetter;
-        public System.Windows.Forms.Label lblDriveLetterValue;
-        private System.Windows.Forms.Label lblDriveCapacity;
         private System.Windows.Forms.GroupBox groupBox;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         public System.Windows.Forms.CheckBox chkBox;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart;
+        private System.Windows.Forms.Label lblDriveCapacity;
+        public System.Windows.Forms.Label lblDriveLetterValue;
+        private System.Windows.Forms.Label lblDriveLetter;
+        private System.Windows.Forms.Label lblDriveCapacityValue;
     }
 }
