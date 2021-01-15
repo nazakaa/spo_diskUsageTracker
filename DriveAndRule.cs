@@ -1,53 +1,40 @@
 ﻿using System;
 using System.IO;
-using System.Windows.Forms;
 
 namespace DriveTracker
 {
     public class DriveAndRule
     {
-        DriveInfo drive {  get; set; }
-        public bool isTracking { get; set; }
-        public Int64 trackingAmount { get; set; }
-        public AboutDrive representaition { get; set; }
+        public DriveInfo Drive {  get; set; }
+        public bool IsTracking { get; set; }
+        public long TrackingAmount { get; set; }
+        public AboutDrive Representation { get; set; }
 
         public DriveAndRule(DriveInfo d)
         {
-            drive = d;
-            isTracking = false;
-            trackingAmount = 0;
-            representaition = null;
+            Drive = d;
+            IsTracking = false;
+            TrackingAmount = 0;
+            Representation = null;
         }
 
         //Получить имя диска
-        public string DriveName
-        {
-            get { return drive.Name; }
-        }
+        public string DriveName => Drive.Name;
 
         //Получить свободное место диска
-        public Int64 DriveFreeSpace
-        {
-            get { return drive.TotalFreeSpace; }
-        }
+        public long DriveFreeSpace => Drive.TotalFreeSpace;
 
         //Получить размер диска
-        public Int64 DriveSize
-        {
-            get { return drive.TotalSize; }
-        }
+        public long DriveSize => Drive.TotalSize;
 
         //Получить занятое место на диске
-        public Int64 DriveUsedSpace
-        {
-            get { return Tools.UsedSpace(drive); }
-        }
+        public long DriveUsedSpace => Tools.UsedSpace(Drive);
 
         //Обновить диск и отображение
-        public void Update(DriveInfo data)
+        public void Update(DriveInfo driveInfo)
         {
-            drive = data;
-            representaition.DrawSeries();
+            Drive = driveInfo;
+            Representation.DrawSeries();
         }
     }
 }

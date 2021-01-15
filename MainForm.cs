@@ -8,8 +8,8 @@ namespace DriveTracker
 {
     public partial class MainForm : Form
     {
-        private System.Drawing.Size Max;
-        private List<DriveAndRule> drivesAndRules;
+        private System.Drawing.Size _maxSize;
+        private List<DriveAndRule> _drivesAndRules;
 
         public MainForm()
         {
@@ -18,64 +18,62 @@ namespace DriveTracker
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            drivesAndRules = new List<DriveAndRule>();
-
+            _drivesAndRules = new List<DriveAndRule>();
+            
             //Занесение дисков в список
             foreach (DriveInfo drive in DriveInfo.GetDrives())
                 if (drive.IsReady)
-                    drivesAndRules.Add(new DriveAndRule(drive));
+                    _drivesAndRules.Add(new DriveAndRule(drive));
 
             //Создание графического представления диска и размещение его на форме
-            foreach (DriveAndRule data in drivesAndRules)
+            foreach (DriveAndRule driveAndRule in _drivesAndRules)
             {
-                data.representaition = new AboutDrive(data);
-                tableLayoutPanel.Controls.Add(data.representaition);
+                driveAndRule.Representation = new AboutDrive(driveAndRule);
+                tableLayoutPanel.Controls.Add(driveAndRule.Representation);
             }
-                
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            //Обновление информации, проверка контроля и удаление неактуальных диков
+            //Обновление информации, проверка контроля и удаление неактуальных дисков
             bool IsExist;
-            for (int i = drivesAndRules.Count - 1;i>= 0; i--)
+            for (int i = _drivesAndRules.Count - 1; i>= 0; i--)
             {
                 IsExist = false;
-
                 foreach (DriveInfo drive in DriveInfo.GetDrives())
                 {
-                    if (drive.IsReady && drivesAndRules[i].DriveName == drive.Name)
+                    if (drive.IsReady && _drivesAndRules[i].DriveName == drive.Name)
                     {
                         //Проверка наличия диска и обновление данных
                         IsExist = true;
-                        drivesAndRules[i].Update(drive);
+                        _drivesAndRules[i].Update(drive);
                     }
                 }
 
-                //Проверка контроля
-                if (drivesAndRules[i].isTracking && drivesAndRules[i].trackingAmount < drivesAndRules[i].DriveUsedSpace)
+                //Проверка мониторинга
+                if (_drivesAndRules[i].IsTracking && _drivesAndRules[i].TrackingAmount < _drivesAndRules[i].DriveUsedSpace)
                 {
                     //Проверка наличия окна о диске
-                    if (!drivesAndRules[i].representaition.track.IsDisposed)
-                        drivesAndRules[i].representaition.track.Dispose();
+                    if (!_drivesAndRules[i].Representation.TrackInfo.IsDisposed)
+                        _drivesAndRules[i].Representation.TrackInfo.Dispose();
 
-                    //Остановка контроля и вывод соосбщения
-                    drivesAndRules[i].isTracking = false;
-                    MessageBox.Show($"Drive {drivesAndRules[i].DriveName} memory tracking rule overwlow", "Warning");
-                    drivesAndRules[i].trackingAmount = 0;
-                    drivesAndRules[i].representaition.chkBox.Checked = false;
+                    //Остановка мониторинга и вывод соосбщения
+                    _drivesAndRules[i].IsTracking = false;
+                    MessageBox.Show($"Переполнение заданного правилом пространства диска {_drivesAndRules[i].DriveName}", "Warning");
+                    _drivesAndRules[i].TrackingAmount = 0;
+                    _drivesAndRules[i].Representation.chkBox.Checked = false;
                 }
 
                 //Удаление неактуальных диков
                 if (!IsExist)
                 {
                     //Проверка наличия окна о диске
-                    if (!drivesAndRules[i].representaition.track.IsDisposed)
-                        drivesAndRules[i].representaition.track.Dispose();
+                    if (!_drivesAndRules[i].Representation.TrackInfo.IsDisposed)
+                        _drivesAndRules[i].Representation.TrackInfo.Dispose();
 
                     //Уничтожение графического представления и элемента списка
-                    drivesAndRules[i].representaition.Dispose();
-                    drivesAndRules.RemoveAt(i);
+                    _drivesAndRules[i].Representation.Dispose();
+                    _drivesAndRules.RemoveAt(i);
                 }
             }
 
@@ -83,33 +81,32 @@ namespace DriveTracker
             {
                 //Поиск новых дисков
                 IsExist = false;
-                foreach (DriveAndRule data in drivesAndRules)
-                    if (drive.IsReady && data.DriveName == drive.Name)
+                foreach (DriveAndRule driveAndRule in _drivesAndRules)
+                    if (drive.IsReady && driveAndRule.DriveName == drive.Name)
                         IsExist = true;
 
                 //Добавление новых дисков
                 if (!IsExist)
                 {
-                    drivesAndRules.Add(new DriveAndRule(drive));
-                    drivesAndRules[drivesAndRules.Count-1].representaition = new AboutDrive(drivesAndRules[drivesAndRules.Count - 1]);
-                    tableLayoutPanel.Controls.Add(drivesAndRules[drivesAndRules.Count - 1].representaition);
+                    _drivesAndRules.Add(new DriveAndRule(drive));
+                    _drivesAndRules[_drivesAndRules.Count-1].Representation = new AboutDrive(_drivesAndRules[_drivesAndRules.Count - 1]);
+                    tableLayoutPanel.Controls.Add(_drivesAndRules[_drivesAndRules.Count - 1].Representation);
                 }
             }
         }
 
-        //Управление размером фомы в зависимости от количества содержимого
+        //Управление размером фоpмы в зависимости от количества содержимого
         private void tableLayoutPanel_ControlAdded(object sender, ControlEventArgs e)
         {
-            if (drivesAndRules.Count <= 4)
+            if (_drivesAndRules.Count <= 4)
             {
                 Size = new System.Drawing.Size(tableLayoutPanel.Width, tableLayoutPanel.Height);
-                Max = Size;
+                _maxSize = Size;
             }
             else
             {
-                MaximumSize = Max;
+                MaximumSize = _maxSize;
             }
-
         }
     }
 }

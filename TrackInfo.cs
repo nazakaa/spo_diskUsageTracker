@@ -7,54 +7,39 @@ namespace DriveTracker
 {
     public partial class TrackInfo : Form
     {
-       
-        private BindingSource bindingSuffix = new BindingSource();
-        private AboutDrive about;
-        public TrackInfo()
-        {
-            InitializeComponent();
-        }
-
-        public TrackInfo( AboutDrive ctrl)
-        {
-            InitializeComponent();
-
-            about = ctrl;
-
-        }
+        private readonly BindingSource _bindingSuffix = new BindingSource();
+        private readonly AboutDrive _about;
 
         private void TrackInfo_Load(object sender, EventArgs e)
         {
             List<string> tmp = new List<string>(Tools.SizeSuffixes);
 
-
-            lblLetterValue.Text = about.driveAndRule.DriveName;
-            chkBox.Checked = about.driveAndRule.isTracking;
-            bindingSuffix.DataSource = tmp;
-            comboBox.DataSource = bindingSuffix;
+            lblLetterValue.Text = _about.DriveAndRule.DriveName;
+            chkBox.Checked = _about.DriveAndRule.IsTracking;
+            _bindingSuffix.DataSource = tmp;
+            comboBox.DataSource = _bindingSuffix;
             txtBox.Text = null;
 
             if (chkBox.Checked)
             {
                 lblAmountValue.Visible = true;
                 lblAmount.Visible = true;
-                lblAmountValue.Text = Tools.SizeSuffixString(about.driveAndRule.trackingAmount);
+                lblAmountValue.Text = Tools.SizeSuffixString(_about.DriveAndRule.TrackingAmount);
             }
             else
             {
                 lblAmountValue.Visible = false;
                 lblAmount.Visible = false;
-
             }
         }
 
-        private void bttnTrack_Click(object sender, EventArgs e)
+        private void btnTrack_Click(object sender, EventArgs e)
         {
-            Int64 tmp;
+            long tmp;
             //Проверка корректности ввода
-            if (!Int64.TryParse(txtBox.Text, out tmp))
+            if (!long.TryParse(txtBox.Text, out tmp))
             {
-                MessageBox.Show("Input correct value", "Warning");
+                MessageBox.Show("Введите корректное значение", "Warning");
                 return;
             }
             //Определение контрольного значения
@@ -62,48 +47,59 @@ namespace DriveTracker
             {
                 if (tmp <= 0 || tmp > 100)
                 {
-                    MessageBox.Show("Percents must be between 0 and 100", "Warning");
+                    MessageBox.Show("Значение процентов может быть от 0 до 100", "Warning");
                     return;
                 }
-                if ((Int64)(about.driveAndRule.DriveSize * ((double)tmp / 100)) < (about.driveAndRule.DriveSize - about.driveAndRule.DriveFreeSpace))
+                if ((long)(_about.DriveAndRule.DriveSize * ((double)tmp / 100)) < (_about.DriveAndRule.DriveSize - _about.DriveAndRule.DriveFreeSpace))
                 {
-                    MessageBox.Show("Tracking amount less then used space", "Warning");
+                    MessageBox.Show("Объем отслеживаемого пространства меньше, чем объем используемого", "Warning");
                     return;
                 }
 
-                about.driveAndRule.trackingAmount = (Int64)(about.driveAndRule.DriveSize * ((double)tmp / 100));
-                about.driveAndRule.isTracking = true;
-                about.chkBox.Checked = about.driveAndRule.isTracking;
+                _about.DriveAndRule.TrackingAmount = (long)(_about.DriveAndRule.DriveSize * ((double)tmp / 100));
+                _about.DriveAndRule.IsTracking = true;
+                _about.chkBox.Checked = _about.DriveAndRule.IsTracking;
             }
             else
             {
-                if (tmp <= 0 || Tools.RawData(comboBox.SelectedIndex, tmp) >= about.driveAndRule.DriveSize)
+                if (tmp <= 0 || Tools.RawData(comboBox.SelectedIndex, tmp) >= _about.DriveAndRule.DriveSize)
                 {
-                    MessageBox.Show("Value must be between 0 and Capacity", "Warning");
+                    MessageBox.Show("Значение процентов может быть больше 0", "Warning");
                     return;
                 }
-                if (Tools.RawData(comboBox.SelectedIndex, tmp) <= about.driveAndRule.DriveUsedSpace)
+                if (Tools.RawData(comboBox.SelectedIndex, tmp) <= _about.DriveAndRule.DriveUsedSpace)
                 {
-                    MessageBox.Show("Tracking amount less then used space", "Warning");
+                    MessageBox.Show("Объем отслеживаемого пространства меньше, чем объем используемого", "Warning");
                     return;
                 }
-                about.driveAndRule.trackingAmount = Tools.RawData(comboBox.SelectedIndex, tmp);
-                about.driveAndRule.isTracking = true;
-                about.chkBox.Checked = about.driveAndRule.isTracking;
+                _about.DriveAndRule.TrackingAmount = Tools.RawData(comboBox.SelectedIndex, tmp);
+                _about.DriveAndRule.IsTracking = true;
+                _about.chkBox.Checked = _about.DriveAndRule.IsTracking;
             }
         }
 
-        private void bttnCancel_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             //Сброс контроля
-            about.driveAndRule.isTracking = false;
-            about.driveAndRule.trackingAmount = 0;
-            about.chkBox.Checked = about.driveAndRule.isTracking;
+            _about.DriveAndRule.IsTracking = false;
+            _about.DriveAndRule.TrackingAmount = 0;
+            _about.chkBox.Checked = _about.DriveAndRule.IsTracking;
         }
 
         private void tableLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public TrackInfo()
+        {
+            InitializeComponent();
+        }
+
+        public TrackInfo(AboutDrive ctrl)
+        {
+            InitializeComponent();
+            _about = ctrl;
         }
     }
 }

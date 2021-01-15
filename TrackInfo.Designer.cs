@@ -53,7 +53,7 @@
             this.bttnTrack.TabIndex = 2;
             this.bttnTrack.Text = "Активировать мониторинг";
             this.bttnTrack.UseVisualStyleBackColor = true;
-            this.bttnTrack.Click += new System.EventHandler(this.bttnTrack_Click);
+            this.bttnTrack.Click += new System.EventHandler(this.btnTrack_Click);
             // 
             // bttnCancel
             // 
@@ -65,7 +65,7 @@
             this.bttnCancel.TabIndex = 3;
             this.bttnCancel.Text = "Отмена";
             this.bttnCancel.UseVisualStyleBackColor = true;
-            this.bttnCancel.Click += new System.EventHandler(this.bttnCancel_Click);
+            this.bttnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // tableLayoutPanel
             // 

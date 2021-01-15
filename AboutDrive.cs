@@ -7,26 +7,25 @@ namespace DriveTracker
 {
     public partial class AboutDrive : UserControl
     {
-        public DriveAndRule driveAndRule { get; set; }
-        public TrackInfo track;
+        public DriveAndRule DriveAndRule { get; set; }
+        public TrackInfo TrackInfo;
 
         public AboutDrive()
         {
             InitializeComponent();
         }
 
-        public AboutDrive(DriveAndRule data)
+        public AboutDrive(DriveAndRule driveAndRule)
         {
-            driveAndRule = data;
+            DriveAndRule = driveAndRule;
 
             InitializeComponent();
-            track = new TrackInfo(this);
-            chkBox.Checked = driveAndRule.isTracking;
+            TrackInfo = new TrackInfo(this);
+            chkBox.Checked = DriveAndRule.IsTracking;
 
-            chart.Titles.Clear();
 
-            lblDriveCapacityValue.Text = Tools.SizeSuffixString(driveAndRule.DriveSize);
-            lblDriveLetterValue.Text = driveAndRule.DriveName;
+            lblDriveCapacityValue.Text = Tools.SizeSuffixString(DriveAndRule.DriveSize);
+            lblDriveLetterValue.Text = DriveAndRule.DriveName;
 
             DrawSeries();
         }
@@ -35,8 +34,8 @@ namespace DriveTracker
         private void AboutDrive_MouseClick(object sender, MouseEventArgs e)
         {
             //Окно информации о диске
-            track.ShowDialog();
-            chkBox.Checked = driveAndRule.isTracking;
+            TrackInfo.ShowDialog();
+            chkBox.Checked = DriveAndRule.IsTracking;
         }
 
         //Изображение диаграммы
@@ -55,17 +54,17 @@ namespace DriveTracker
 
             chart.Series.Add(series);
 
-            series.Points.Add(driveAndRule.DriveFreeSpace);
-            series.Points.Add(driveAndRule.DriveUsedSpace);
-            series.Points[0].Color = System.Drawing.Color.DarkGray;
-            series.Points[1].Color = System.Drawing.Color.DarkCyan;
+            series.Points.Add(DriveAndRule.DriveFreeSpace);
+            series.Points.Add(DriveAndRule.DriveUsedSpace);
+            series.Points[0].Color = Color.DarkGray;
+            series.Points[1].Color = Color.DarkCyan;
 
             DataPoint p1 = series.Points[0];
-            p1.AxisLabel = Tools.SizeSuffixString((driveAndRule.DriveFreeSpace));
+            p1.AxisLabel = Tools.SizeSuffixString((DriveAndRule.DriveFreeSpace));
             p1.LegendText = "Свободно";
 
             DataPoint p2 = series.Points[1];
-            p2.AxisLabel = Tools.SizeSuffixString(driveAndRule.DriveUsedSpace);
+            p2.AxisLabel = Tools.SizeSuffixString(DriveAndRule.DriveUsedSpace);
             p2.LegendText = "Используется";
 
             chart.Invalidate();

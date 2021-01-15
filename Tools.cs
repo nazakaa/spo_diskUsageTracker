@@ -9,8 +9,8 @@ namespace DriveTracker
         //Определенные размеры
         public static string[] SizeSuffixes = { "percents", "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
 
-        //Получение оптимальной присравки для байтов
-        public static string SizeSuffixString(Int64 value)
+        //Получение оптимальной приставки для байтов
+        public static string SizeSuffixString(long value)
         {
             if (value < 0) { return "-" + SizeSuffixString(-value); }
             if (value == 0) { return "0.0 bytes"; }
@@ -22,14 +22,14 @@ namespace DriveTracker
         }
 
         //Перевод из определенного размера в байты
-        public static long RawData(int index, Int64 value)
+        public static long RawData(int index, long value)
         {
             index--;
             long adjustedSize = value * (1L << (index * 10));
             return adjustedSize;
         }
 
-        public static Int64 UsedSpace(this DriveInfo drive)
+        public static long UsedSpace(this DriveInfo drive)
         {
             return (drive.TotalSize - drive.TotalFreeSpace);
         }
