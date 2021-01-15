@@ -134,7 +134,7 @@
             this.chkBox.TabIndex = 21;
             this.chkBox.Text = "Мониторинг";
             this.chkBox.UseVisualStyleBackColor = true;
-            this.chkBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AboutDrive_MouseClick);
+            this.chkBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AboutDriveRepresentation_MouseClick);
             // 
             // AboutDrive
             // 
@@ -144,8 +144,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AboutDriveRepresentation";
             this.Size = new System.Drawing.Size(441, 303);
-            this.Load += new System.EventHandler(this.AboutDrive_Load);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AboutDrive_MouseClick);
+            this.Load += new System.EventHandler(this.AboutDriveRepresentation_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AboutDriveRepresentation_MouseClick);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();

@@ -9,7 +9,6 @@ C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Rele
 C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Release\DriveTrackerExt.csproj.GenerateResource.cache
 C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Release\DriveTracker.exe
 C:\Users\TrLuxsus\source\repos\DriveTrackerExt\Extended\DriveTrackerExt\obj\Release\DriveTracker.pdb
-D:\Desktop\0\old dt\bin\Release\DriveTracker.exe.config
 D:\Desktop\0\old dt\bin\Release\DriveTracker.exe
 D:\Desktop\0\old dt\bin\Release\DriveTracker.pdb
 D:\Desktop\0\old dt\obj\Release\DriveTrackerExt.csprojAssemblyReference.cache

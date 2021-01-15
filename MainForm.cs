@@ -28,25 +28,26 @@ namespace DriveTracker
             }
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
-            //Обновление информации, проверка контроля и удаление неактуальных дисков
-            bool IsExist;
-            for (int i = _drivesAndRules.Count - 1; i>= 0; i--)
+            //Обновление информации, проверка мониторинга и удаление неактуальных дисков
+            bool isExist;
+            for (int i = 0; i < _drivesAndRules.Count - 1; i++)
             {
-                IsExist = false;
+                isExist = false;
                 foreach (DriveInfo drive in DriveInfo.GetDrives())
                 {
                     if (drive.IsReady && _drivesAndRules[i].DriveName == drive.Name)
                     {
                         //Проверка наличия диска и обновление данных
-                        IsExist = true;
+                        isExist = true;
                         _drivesAndRules[i].Update(drive);
                     }
                 }
 
                 //Проверка мониторинга
-                if (_drivesAndRules[i].IsTracking && _drivesAndRules[i].TrackingAmount < _drivesAndRules[i].DriveUsedSpace)
+                if (_drivesAndRules[i].IsTracking && 
+                    _drivesAndRules[i].TrackingAmount < _drivesAndRules[i].DriveUsedSpace)
                 {
                     //Проверка наличия окна о диске
                     if (!_drivesAndRules[i].Representation.TrackInfo.IsDisposed)
@@ -54,13 +55,14 @@ namespace DriveTracker
 
                     //Остановка мониторинга и вывод соосбщения
                     _drivesAndRules[i].IsTracking = false;
-                    MessageBox.Show($"Переполнение заданного правилом пространства диска {_drivesAndRules[i].DriveName}", "Warning");
+                    MessageBox.Show("Переполнение заданного правилом пространства диска" +
+                                    $" {_drivesAndRules[i].DriveName}", "Warning");
                     _drivesAndRules[i].TrackingAmount = 0;
                     _drivesAndRules[i].Representation.chkBox.Checked = false;
                 }
 
                 //Удаление неактуальных диков
-                if (!IsExist)
+                if (!isExist)
                 {
                     //Проверка наличия окна о диске
                     if (!_drivesAndRules[i].Representation.TrackInfo.IsDisposed)
@@ -75,13 +77,13 @@ namespace DriveTracker
             foreach (DriveInfo drive in DriveInfo.GetDrives())
             {
                 //Поиск новых дисков
-                IsExist = false;
+                isExist = false;
                 foreach (DriveAndRule driveAndRule in _drivesAndRules)
                     if (drive.IsReady && driveAndRule.DriveName == drive.Name)
-                        IsExist = true;
+                        isExist = true;
 
                 //Добавление новых дисков
-                if (!IsExist)
+                if (!isExist)
                 {
                     _drivesAndRules.Add(new DriveAndRule(drive));
                     _drivesAndRules[_drivesAndRules.Count-1].Representation = new AboutDriveRepresentation(_drivesAndRules[_drivesAndRules.Count - 1]);
@@ -91,7 +93,7 @@ namespace DriveTracker
         }
 
         //Управление размером фоpмы в зависимости от количества содержимого
-        private void tableLayoutPanel_ControlAdded(object sender, ControlEventArgs e)
+        private void TableLayoutPanel_ControlAdded(object sender, ControlEventArgs e)
         {
             if (_drivesAndRules.Count <= 4)
             {

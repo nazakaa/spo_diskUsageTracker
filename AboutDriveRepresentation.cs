@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -23,7 +24,6 @@ namespace DriveTracker
             };
 
             series.Font = new Font(FontFamily.GenericSerif, 14, FontStyle.Bold);
-
             chart.Series.Add(series);
 
             series.Points.Add(DriveAndRule.DriveFreeSpace);
@@ -32,7 +32,7 @@ namespace DriveTracker
             series.Points[1].Color = Color.DarkCyan;
 
             DataPoint p1 = series.Points[0];
-            p1.AxisLabel = Tools.SizeSuffixString((DriveAndRule.DriveFreeSpace));
+            p1.AxisLabel = Tools.SizeSuffixString(DriveAndRule.DriveFreeSpace);
             p1.LegendText = "Свободно";
 
             DataPoint p2 = series.Points[1];
@@ -42,8 +42,8 @@ namespace DriveTracker
             chart.Invalidate();
         }
 
-        private void AboutDrive_MouseClick(object sender, MouseEventArgs e)
-        {
+        private void AboutDriveRepresentation_MouseClick(object sender, MouseEventArgs e)
+        { 
             //Окно информации о диске
             TrackInfo.ShowDialog();
             chkBox.Checked = DriveAndRule.IsTracking;
@@ -52,7 +52,7 @@ namespace DriveTracker
         {
             chart.SaveImage("resultChart.png",ChartImageFormat.Png);
         }
-        private void AboutDrive_Load(object sender, System.EventArgs e)
+        private void AboutDriveRepresentation_Load(object sender, System.EventArgs e)
         {
 
         }
@@ -68,7 +68,6 @@ namespace DriveTracker
             InitializeComponent();
             TrackInfo = new TrackInfo(this);
             chkBox.Checked = DriveAndRule.IsTracking;
-
 
             lblDriveCapacityValue.Text = Tools.SizeSuffixString(DriveAndRule.DriveSize);
             lblDriveLetterValue.Text = DriveAndRule.DriveName;

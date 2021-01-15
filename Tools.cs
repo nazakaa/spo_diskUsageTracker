@@ -18,7 +18,7 @@ namespace DriveTracker
             int mag = (int)Math.Log(value, 1024);
             decimal adjustedSize = (decimal)value / (1L << (mag * 10));
 
-            return string.Format("{0:n1} {1}", adjustedSize, SizeSuffixes[mag + 1]);
+            return $"{adjustedSize:n1} {SizeSuffixes[mag + 1]}";
         }
 
         //Перевод из определенного размера в байты

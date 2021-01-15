@@ -19,7 +19,7 @@ namespace DriveTracker
         public long DriveSize => Drive.TotalSize;
 
         //Получить занятое место на диске
-        public long DriveUsedSpace => Tools.UsedSpace(Drive);
+        public long DriveUsedSpace => Drive.UsedSpace();
 
         //Обновить диск и отображение
         public void Update(DriveInfo driveInfo)

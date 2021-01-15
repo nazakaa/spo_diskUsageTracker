@@ -50,14 +50,14 @@
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel.Size = new System.Drawing.Size(0, 0);
             this.tableLayoutPanel.TabIndex = 0;
-            this.tableLayoutPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tableLayoutPanel_ControlAdded);
-            this.tableLayoutPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.tableLayoutPanel_ControlAdded);
+            this.tableLayoutPanel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.TableLayoutPanel_ControlAdded);
+            this.tableLayoutPanel.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.TableLayoutPanel_ControlAdded);
             // 
             // timer
             // 
             this.timer.Enabled = true;
             this.timer.Interval = 500;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // MainForm
             // 
