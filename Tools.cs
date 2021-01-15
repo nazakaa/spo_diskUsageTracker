@@ -1,13 +1,13 @@
 ﻿using System;
 using System.IO;
 
-
 namespace DriveTracker
 {
     static class Tools
     {
         //Определенные размеры
-        public static string[] SizeSuffixes = { "percents", "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
+        public static string[] SizeSuffixes = { "percents", "bytes", "KB", "MB", "GB", "TB",
+            "PB", "EB", "ZB", "YB" };
 
         //Получение оптимальной приставки для байтов
         public static string SizeSuffixString(long value)

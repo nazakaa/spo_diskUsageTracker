@@ -5,38 +5,10 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DriveTracker
 {
-    public partial class AboutDrive : UserControl
+    public partial class AboutDriveRepresentation : UserControl
     {
         public DriveAndRule DriveAndRule { get; set; }
         public TrackInfo TrackInfo;
-
-        public AboutDrive()
-        {
-            InitializeComponent();
-        }
-
-        public AboutDrive(DriveAndRule driveAndRule)
-        {
-            DriveAndRule = driveAndRule;
-
-            InitializeComponent();
-            TrackInfo = new TrackInfo(this);
-            chkBox.Checked = DriveAndRule.IsTracking;
-
-
-            lblDriveCapacityValue.Text = Tools.SizeSuffixString(DriveAndRule.DriveSize);
-            lblDriveLetterValue.Text = DriveAndRule.DriveName;
-
-            DrawSeries();
-        }
-
-
-        private void AboutDrive_MouseClick(object sender, MouseEventArgs e)
-        {
-            //Окно информации о диске
-            TrackInfo.ShowDialog();
-            chkBox.Checked = DriveAndRule.IsTracking;
-        }
 
         //Изображение диаграммы
         public void DrawSeries()
@@ -70,19 +42,38 @@ namespace DriveTracker
             chart.Invalidate();
         }
 
-        private void chart_Click(object sender, System.EventArgs e)
+        private void AboutDrive_MouseClick(object sender, MouseEventArgs e)
         {
-            chart.SaveImage("myChart.png", format: ChartImageFormat.Png);
+            //Окно информации о диске
+            TrackInfo.ShowDialog();
+            chkBox.Checked = DriveAndRule.IsTracking;
         }
-
+        private void chart_Click_1(object sender, System.EventArgs e)
+        {
+            chart.SaveImage("resultChart.png",ChartImageFormat.Png);
+        }
         private void AboutDrive_Load(object sender, System.EventArgs e)
         {
 
         }
 
-        private void chart_Click_1(object sender, System.EventArgs e)
+        public AboutDriveRepresentation()
         {
-            chart.SaveImage("resultChart.png",ChartImageFormat.Png);
+            InitializeComponent();
+        }
+        public AboutDriveRepresentation(DriveAndRule driveAndRule)
+        {
+            DriveAndRule = driveAndRule;
+
+            InitializeComponent();
+            TrackInfo = new TrackInfo(this);
+            chkBox.Checked = DriveAndRule.IsTracking;
+
+
+            lblDriveCapacityValue.Text = Tools.SizeSuffixString(DriveAndRule.DriveSize);
+            lblDriveLetterValue.Text = DriveAndRule.DriveName;
+
+            DrawSeries();
         }
     }
 }

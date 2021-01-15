@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-
 namespace DriveTracker
 {
     public partial class TrackInfo : Form
     {
         private readonly BindingSource _bindingSuffix = new BindingSource();
-        private readonly AboutDrive _about;
+        private readonly AboutDriveRepresentation _about;
 
         private void TrackInfo_Load(object sender, EventArgs e)
         {
@@ -33,7 +32,7 @@ namespace DriveTracker
             }
         }
 
-        private void btnTrack_Click(object sender, EventArgs e)
+        private void BtnTrack_Click(object sender, EventArgs e)
         {
             long tmp;
             //Проверка корректности ввода
@@ -78,7 +77,7 @@ namespace DriveTracker
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             //Сброс контроля
             _about.DriveAndRule.IsTracking = false;
@@ -86,20 +85,20 @@ namespace DriveTracker
             _about.chkBox.Checked = _about.DriveAndRule.IsTracking;
         }
 
-        private void tableLayoutPanel_Paint(object sender, PaintEventArgs e)
+
+        private void TableLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         public TrackInfo()
         {
             InitializeComponent();
         }
-
-        public TrackInfo(AboutDrive ctrl)
+        public TrackInfo(AboutDriveRepresentation ctrl)
         {
             InitializeComponent();
             _about = ctrl;
         }
     }
+
 }

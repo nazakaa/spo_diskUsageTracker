@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace DriveTracker
 {
@@ -8,15 +7,7 @@ namespace DriveTracker
         public DriveInfo Drive {  get; set; }
         public bool IsTracking { get; set; }
         public long TrackingAmount { get; set; }
-        public AboutDrive Representation { get; set; }
-
-        public DriveAndRule(DriveInfo d)
-        {
-            Drive = d;
-            IsTracking = false;
-            TrackingAmount = 0;
-            Representation = null;
-        }
+        public AboutDriveRepresentation Representation { get; set; }
 
         //Получить имя диска
         public string DriveName => Drive.Name;
@@ -36,5 +27,15 @@ namespace DriveTracker
             Drive = driveInfo;
             Representation.DrawSeries();
         }
+
+
+        public DriveAndRule(DriveInfo d)
+        {
+            Drive = d;
+            IsTracking = false;
+            TrackingAmount = 0;
+            Representation = null;
+        }
     }
+
 }

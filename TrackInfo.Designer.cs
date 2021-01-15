@@ -53,7 +53,7 @@
             this.bttnTrack.TabIndex = 2;
             this.bttnTrack.Text = "Активировать мониторинг";
             this.bttnTrack.UseVisualStyleBackColor = true;
-            this.bttnTrack.Click += new System.EventHandler(this.btnTrack_Click);
+            this.bttnTrack.Click += new System.EventHandler(this.BtnTrack_Click);
             // 
             // bttnCancel
             // 
@@ -65,7 +65,7 @@
             this.bttnCancel.TabIndex = 3;
             this.bttnCancel.Text = "Отмена";
             this.bttnCancel.UseVisualStyleBackColor = true;
-            this.bttnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.bttnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // tableLayoutPanel
             // 
@@ -92,7 +92,7 @@
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel.Size = new System.Drawing.Size(379, 63);
             this.tableLayoutPanel.TabIndex = 4;
-            this.tableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel_Paint);
+            this.tableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TableLayoutPanel_Paint);
             // 
             // lblAmount
             // 

@@ -1,6 +1,6 @@
 ﻿namespace DriveTracker
 {
-    partial class AboutDrive
+    partial class AboutDriveRepresentation
     {
         /// <summary> 
         /// Required designer variable.
@@ -142,7 +142,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "AboutDrive";
+            this.Name = "AboutDriveRepresentation";
             this.Size = new System.Drawing.Size(441, 303);
             this.Load += new System.EventHandler(this.AboutDrive_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AboutDrive_MouseClick);

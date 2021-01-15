@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutDrive.cs">
+    <Compile Include="AboutDriveRepresentation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AboutDrive.Designer.cs">
-      <DependentUpon>AboutDrive.cs</DependentUpon>
+    <Compile Include="AboutDriveRepresentation.Designer.cs">
+      <DependentUpon>AboutDriveRepresentation.cs</DependentUpon>
     </Compile>
     <Compile Include="DriveAndRule.cs" />
     <Compile Include="MainForm.cs">

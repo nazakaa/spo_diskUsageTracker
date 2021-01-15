@@ -3,7 +3,6 @@ using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-
 namespace DriveTracker
 {
     public partial class MainForm : Form
@@ -11,10 +10,6 @@ namespace DriveTracker
         private System.Drawing.Size _maxSize;
         private List<DriveAndRule> _drivesAndRules;
 
-        public MainForm()
-        {
-            InitializeComponent();
-        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -28,7 +23,7 @@ namespace DriveTracker
             //Создание графического представления диска и размещение его на форме
             foreach (DriveAndRule driveAndRule in _drivesAndRules)
             {
-                driveAndRule.Representation = new AboutDrive(driveAndRule);
+                driveAndRule.Representation = new AboutDriveRepresentation(driveAndRule);
                 tableLayoutPanel.Controls.Add(driveAndRule.Representation);
             }
         }
@@ -89,7 +84,7 @@ namespace DriveTracker
                 if (!IsExist)
                 {
                     _drivesAndRules.Add(new DriveAndRule(drive));
-                    _drivesAndRules[_drivesAndRules.Count-1].Representation = new AboutDrive(_drivesAndRules[_drivesAndRules.Count - 1]);
+                    _drivesAndRules[_drivesAndRules.Count-1].Representation = new AboutDriveRepresentation(_drivesAndRules[_drivesAndRules.Count - 1]);
                     tableLayoutPanel.Controls.Add(_drivesAndRules[_drivesAndRules.Count - 1].Representation);
                 }
             }
@@ -107,6 +102,11 @@ namespace DriveTracker
             {
                 MaximumSize = _maxSize;
             }
+        }
+
+        public MainForm()
+        {
+            InitializeComponent();
         }
     }
 }
