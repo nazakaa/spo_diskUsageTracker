@@ -32,11 +32,11 @@ namespace DriveTracker
             series.Points[1].Color = Color.DarkCyan;
 
             DataPoint p1 = series.Points[0];
-            p1.AxisLabel = Tools.SizeSuffixString(DriveAndRule.DriveFreeSpace);
+            p1.AxisLabel = Tools.ConvertFromBytes(DriveAndRule.DriveFreeSpace);
             p1.LegendText = "Свободно";
 
             DataPoint p2 = series.Points[1];
-            p2.AxisLabel = Tools.SizeSuffixString(DriveAndRule.DriveUsedSpace);
+            p2.AxisLabel = Tools.ConvertFromBytes(DriveAndRule.DriveUsedSpace);
             p2.LegendText = "Используется";
 
             chart.Invalidate();
@@ -69,7 +69,7 @@ namespace DriveTracker
             TrackInfo = new TrackInfo(this);
             chkBox.Checked = DriveAndRule.IsTracking;
 
-            lblDriveCapacityValue.Text = Tools.SizeSuffixString(DriveAndRule.DriveSize);
+            lblDriveCapacityValue.Text = Tools.ConvertFromBytes(DriveAndRule.DriveSize);
             lblDriveLetterValue.Text = DriveAndRule.DriveName;
 
             DrawSeries();

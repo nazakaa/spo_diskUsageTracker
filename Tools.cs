@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace DriveTracker
 {
@@ -10,21 +11,20 @@ namespace DriveTracker
             "PB", "EB", "ZB", "YB" };
 
         //Получение оптимальной приставки для байтов
-        public static string SizeSuffixString(long value)
+        public static string ConvertFromBytes(long value)
         {
-            if (value < 0) { return "-" + SizeSuffixString(-value); }
+            if (value < 0) { return "-" + ConvertFromBytes(-value); }
             if (value == 0) { return "0.0 bytes"; }
 
             int mag = (int)Math.Log(value, 1024);
             decimal adjustedSize = (decimal)value / (1L << (mag * 10));
-
             return $"{adjustedSize:n1} {SizeSuffixes[mag + 1]}";
         }
 
         //Перевод из определенного размера в байты
-        public static long RawData(int index, long value)
+        public static long ConvertToBytes(int index, long value)
         {
-            index--;
+            index--; 
             long adjustedSize = value * (1L << (index * 10));
             return adjustedSize;
         }

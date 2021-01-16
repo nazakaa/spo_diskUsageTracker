@@ -7,15 +7,14 @@ namespace DriveTracker
     public partial class TrackInfo : Form
     {
         private readonly BindingSource _bindingSuffix = new BindingSource();
-        private readonly AboutDriveRepresentation _about;
+        private readonly AboutDriveRepresentation _aboutDriveRepresentation;
 
         private void TrackInfo_Load(object sender, EventArgs e)
         {
-            List<string> tmp = new List<string>(Tools.SizeSuffixes);
+            lblLetterValue.Text = _aboutDriveRepresentation.DriveAndRule.DriveName;
+            chkBox.Checked = _aboutDriveRepresentation.DriveAndRule.IsTracking;
 
-            lblLetterValue.Text = _about.DriveAndRule.DriveName;
-            chkBox.Checked = _about.DriveAndRule.IsTracking;
-            _bindingSuffix.DataSource = tmp;
+            _bindingSuffix.DataSource = Tools.SizeSuffixes;
             comboBox.DataSource = _bindingSuffix;
             txtBox.Text = null;
 
@@ -23,7 +22,7 @@ namespace DriveTracker
             {
                 lblAmountValue.Visible = true;
                 lblAmount.Visible = true;
-                lblAmountValue.Text = Tools.SizeSuffixString(_about.DriveAndRule.TrackingAmount);
+                lblAmountValue.Text = Tools.ConvertFromBytes(_aboutDriveRepresentation.DriveAndRule.TrackingAmount);
             }
             else
             {
@@ -34,55 +33,67 @@ namespace DriveTracker
 
         private void BtnTrack_Click(object sender, EventArgs e)
         {
-            long tmp;
+            long value;
+
             //Проверка корректности ввода
-            if (!long.TryParse(txtBox.Text, out tmp))
+            if (!long.TryParse(txtBox.Text, out value))
             {
                 MessageBox.Show("Введите корректное значение", "Warning");
                 return;
             }
-            //Определение контрольного значения
+
+            // если проценты
             if (comboBox.SelectedIndex == 0)
             {
-                if (tmp <= 0 || tmp > 100)
+                if (value <= 0 || value > 100)
                 {
-                    MessageBox.Show("Значение процентов может быть от 0 до 100", "Warning");
+                    MessageBox.Show("Значение процентов может быть от 0 до 100",
+                        "Warning");
                     return;
                 }
-                if ((long)(_about.DriveAndRule.DriveSize * ((double)tmp / 100)) < (_about.DriveAndRule.DriveSize - _about.DriveAndRule.DriveFreeSpace))
+                if ((long)(_aboutDriveRepresentation.DriveAndRule.DriveSize * ((double)value / 100)) < 
+                    (_aboutDriveRepresentation.DriveAndRule.DriveSize - _aboutDriveRepresentation.DriveAndRule.DriveFreeSpace))
                 {
-                    MessageBox.Show("Объем отслеживаемого пространства меньше, чем объем используемого", "Warning");
+                    MessageBox.Show("Объем отслеживаемого пространства меньше," +
+                                    " чем объем используемого", "Warning");
                     return;
                 }
 
-                _about.DriveAndRule.TrackingAmount = (long)(_about.DriveAndRule.DriveSize * ((double)tmp / 100));
-                _about.DriveAndRule.IsTracking = true;
-                _about.chkBox.Checked = _about.DriveAndRule.IsTracking;
+                _aboutDriveRepresentation.DriveAndRule.TrackingAmount = 
+                    (long)(_aboutDriveRepresentation.DriveAndRule.DriveSize * ((double)value / 100));
+                _aboutDriveRepresentation.DriveAndRule.IsTracking = true;
+                _aboutDriveRepresentation.chkBox.Checked = _aboutDriveRepresentation.DriveAndRule.IsTracking;
             }
-            else
+            else // если байты
             {
-                if (tmp <= 0 || Tools.RawData(comboBox.SelectedIndex, tmp) >= _about.DriveAndRule.DriveSize)
+                long valueInBytes = Tools.ConvertToBytes(comboBox.SelectedIndex, value);
+
+                if (value <= 0 ||
+                    valueInBytes >= _aboutDriveRepresentation.DriveAndRule.DriveSize)
                 {
-                    MessageBox.Show("Значение процентов может быть больше 0", "Warning");
+                    MessageBox.Show("Значение дожно быть больше 0 и меньше размера диска",
+                        "Warning");
                     return;
                 }
-                if (Tools.RawData(comboBox.SelectedIndex, tmp) <= _about.DriveAndRule.DriveUsedSpace)
+                if (valueInBytes <= _aboutDriveRepresentation.DriveAndRule.DriveUsedSpace)
                 {
-                    MessageBox.Show("Объем отслеживаемого пространства меньше, чем объем используемого", "Warning");
+                    MessageBox.Show("Объем отслеживаемого пространства должен быть больше," +
+                                    " чем объем используемого", "Warning");
                     return;
                 }
-                _about.DriveAndRule.TrackingAmount = Tools.RawData(comboBox.SelectedIndex, tmp);
-                _about.DriveAndRule.IsTracking = true;
-                _about.chkBox.Checked = _about.DriveAndRule.IsTracking;
+
+                _aboutDriveRepresentation.DriveAndRule.TrackingAmount = valueInBytes;
+                _aboutDriveRepresentation.DriveAndRule.IsTracking = true;
+                _aboutDriveRepresentation.chkBox.Checked = _aboutDriveRepresentation.DriveAndRule.IsTracking;
             }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             //Сброс контроля
-            _about.DriveAndRule.IsTracking = false;
-            _about.DriveAndRule.TrackingAmount = 0;
-            _about.chkBox.Checked = _about.DriveAndRule.IsTracking;
+            _aboutDriveRepresentation.DriveAndRule.IsTracking = false;
+            _aboutDriveRepresentation.DriveAndRule.TrackingAmount = 0;
+            _aboutDriveRepresentation.chkBox.Checked = _aboutDriveRepresentation.DriveAndRule.IsTracking;
         }
 
 
@@ -97,7 +108,7 @@ namespace DriveTracker
         public TrackInfo(AboutDriveRepresentation ctrl)
         {
             InitializeComponent();
-            _about = ctrl;
+            _aboutDriveRepresentation = ctrl;
         }
     }
 
